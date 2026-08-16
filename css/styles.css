@@ -142,6 +142,7 @@ input, select {
 .progress-fill.protein { background: var(--protein); }
 .progress-fill.carbs { background: var(--carbs); }
 .progress-fill.fat { background: var(--fat); }
+.progress-fill.over { background: var(--danger); }
 
 .preview { font-size: 0.9rem; color: var(--muted); min-height: 1.2em; }
 
@@ -189,6 +190,36 @@ input, select {
 }
 .resultado-box .item .valor { font-size: 1.2rem; font-weight: 700; }
 .resultado-box .item .etiqueta { font-size: 0.75rem; color: var(--muted); }
+
+.plan-meal-card h2 { display: flex; align-items: center; gap: 0.5rem; }
+.plan-meal-badge {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  background: #fee2e2;
+  color: var(--danger);
+}
+
+.plan-sugerencias { margin-top: 0.75rem; border-top: 1px solid var(--border); padding-top: 0.5rem; }
+.plan-sugerencias h3 { margin: 0 0 0.5rem; font-size: 1rem; }
+.sugerencia-item {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem;
+  padding: 0.4rem 0;
+  border-bottom: 1px solid var(--border);
+  font-size: 0.9rem;
+}
+.sugerencia-item:last-child { border-bottom: none; }
+.sugerencia-nombre { font-weight: 600; flex: 1 1 100%; }
+.sugerencia-cant { color: var(--primary-dark); font-weight: 600; }
+.sugerencia-macros { color: var(--muted); font-size: 0.8rem; }
+.sugerencia-vacio { color: var(--muted); font-style: italic; font-size: 0.9rem; }
+.sugerencia-vacio.sugerencia-over { color: var(--danger); font-style: normal; font-weight: 600; }
+
+.split-hint { grid-column: 1 / -1; font-size: 0.75rem; color: var(--muted); margin: 0; }
 
 @media (max-width: 600px) {
   .tabs { justify-content: space-between; }

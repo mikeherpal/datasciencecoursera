@@ -18,6 +18,7 @@
   <button class="tab-btn" data-target="comidas">Comidas</button>
   <button class="tab-btn" data-target="entrenamiento">Entrenamiento</button>
   <button class="tab-btn" data-target="perfil">Perfil</button>
+  <button class="tab-btn" data-target="plan">Plan</button>
 </nav>
 
 <main>
@@ -198,6 +199,11 @@
           <label>Déficit calórico (%) <input type="number" id="perfil-deficit" min="0" max="50" step="1" value="20"></label>
           <label>Proteína (g/kg) <input type="number" id="perfil-proteina" min="1" max="4" step="0.1" value="2.0"></label>
           <label>Grasa (% de kcal objetivo) <input type="number" id="perfil-grasa-pct" min="10" max="50" step="1" value="25"></label>
+          <label>Desayuno (%) <input type="number" id="perfil-split-desayuno" min="0" max="100" step="1" value="25"></label>
+          <label>Comida (%) <input type="number" id="perfil-split-comida" min="0" max="100" step="1" value="35"></label>
+          <label>Cena (%) <input type="number" id="perfil-split-cena" min="0" max="100" step="1" value="30"></label>
+          <label>Snack (%) <input type="number" id="perfil-split-snack" min="0" max="100" step="1" value="10"></label>
+          <p class="split-hint">El reparto por tiempo de comida se normaliza automáticamente para sumar 100%.</p>
         </details>
 
         <button type="submit" class="btn primary">Guardar y calcular</button>
@@ -207,6 +213,37 @@
     <div class="card">
       <h2>Resultado</h2>
       <div id="perfil-resultado">Completa el formulario para ver tus objetivos calóricos y de macros.</div>
+    </div>
+  </section>
+
+  <!-- PLAN -->
+  <section id="tab-plan" class="tab-section">
+    <div id="plan-aviso" class="aviso hidden">
+      Completa tu <a href="#" data-goto="perfil">perfil</a> primero para ver tu plan de comidas.
+    </div>
+
+    <div id="plan-contenido" class="hidden">
+      <div class="card">
+        <h2>Resumen del día</h2>
+        <div class="progress-row">
+          <div class="progress-label"><span>Calorías</span><span id="plan-dia-kcal-texto">0 / 0 kcal</span></div>
+          <div class="progress-bar"><div id="plan-dia-kcal-bar" class="progress-fill kcal"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-label"><span>Proteína</span><span id="plan-dia-protein-texto">0 / 0 g</span></div>
+          <div class="progress-bar"><div id="plan-dia-protein-bar" class="progress-fill protein"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-label"><span>Carbohidratos</span><span id="plan-dia-carbs-texto">0 / 0 g</span></div>
+          <div class="progress-bar"><div id="plan-dia-carbs-bar" class="progress-fill carbs"></div></div>
+        </div>
+        <div class="progress-row">
+          <div class="progress-label"><span>Grasas</span><span id="plan-dia-fat-texto">0 / 0 g</span></div>
+          <div class="progress-bar"><div id="plan-dia-fat-bar" class="progress-fill fat"></div></div>
+        </div>
+      </div>
+
+      <div id="plan-comidas-container"></div>
     </div>
   </section>
 
